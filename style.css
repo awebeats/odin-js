@@ -1,7 +1,9 @@
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 100%;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 4rem;
 }
 
 td,
@@ -9,8 +11,37 @@ th {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
+  text-align: center;
+  vertical-align: middle;
 }
 
 tr:nth-child(even) {
   background-color: #dddddd;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: auto 50px;
+  grid-gap: 2rem;
+  > button {
+    margin: 0 auto;
+    width: 10%;
+    cursor: pointer;
+  }
+}
+
+form {
+  display: grid;
+  grid-gap: 0.3rem;
+  .form-btns {
+    /* padding-top: 0.5rem; */
+    display: flex;
+    justify-content: space-between;
+  }
+  input {
+    margin-bottom: 0.7rem;
+  }
+  hr {
+    width: 100%;
+  }
 }
