@@ -29,18 +29,17 @@ const initBooks = [
   },
 ];
 
-class Book {
-  constructor(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.info = () =>
-      `${this.title} by ${this.author}, ${this.pages} pages, ${
-        !this.read ? "not read yet." : "read."
-      }`;
-  }
+// BOOK OBJECT CONSTRUCTOR and PROTOTYPE FUNCTION
+function Book(title, author, pages, read) {
+  this.title = title;
+  this.author = author;
+  this.pages = pages;
+  this.read = read;
 }
+
+Book.prototype.readToggle = function () {
+  this.read = !this.read;
+};
 
 // INIT TABLE WITH EXISTING BOOKS
 initBooks.forEach((book, i) => {
@@ -104,8 +103,10 @@ function createReadToggle(currentBook) {
   const readToggle = d.createElement("button");
 
   readToggle.innerText = currentBook.read;
-  readToggle.onclick = () =>
-    (readToggle.innerText = currentBook.read = !currentBook.read);
+  readToggle.onclick = () => {
+    currentBook.readToggle();
+    readToggle.innerText = currentBook.read;
+  };
 
   return readToggle;
 }
